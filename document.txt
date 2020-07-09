@@ -19,4 +19,4 @@ docker-compose exec db bash
 mysql -u root -p
 (the password here is laravel and the databse name is laravel also , you can change them in docker-compose file and .env file)
 11- see if the database created or no:
-show databses;
+show databases;

@@ -1,0 +1,22 @@
+1- Copy those files under your laravel project
+3- Make sure to run these commands for your project in local before building the dockefile:
+composer require swooletw/laravel-swoole
+Edit bootstrap/app.php
+$app->register(SwooleTW\Http\LumenServiceProvider::class);
+php artisan vendor:publish --tag=laravel-swoole
+chown -R www-data:www-data /path-of-your-laravel-project
+chmod -R 777 storage/
+chmod -R 777 ./
+4- docker-compose build
+5- docker-compose up -d
+6- docker-compose exec app bash
+7- php artisan swoole:http start
+8- php artisan migrate
+9- to see your database exit the app container and go to db container: 
+exit
+docker-compose exec db bash
+10- connect to mysql:
+mysql -u root -p
+(the password here is laravel and the databse name is laravel also , you can change them in docker-compose file and .env file)
+11- see if the database created or no:
+show databses;
